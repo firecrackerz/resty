@@ -10,7 +10,7 @@ export class Environment {
     if (this.env.error) {
       // This error should crash whole process
       // throw envFound.error;
-      throw new Error("Couldn't find .env file ");
+      // throw new Error("Couldn't find .env file ");
     }
     // console.log(this.env);
     console.log('Environment.constructor');
