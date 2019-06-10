@@ -1,0 +1,19 @@
+{
+  "name": "resty",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "tsc -b packages/core",
+    "test": "lerna run test",
+    "clean": "rimraf packages/**/lib"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.7",
+    "lerna": "^3.14.1",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
