@@ -15,7 +15,7 @@
     "allowJs": false,
     "strict": true,
     "strictNullChecks": false,
-    "typeRoots": ["../node_modules/@types"]
+    "typeRoots": ["../node_modules/@types", "./**/*.d.ts"]
   },
   "exclude": ["../node_modules", "./**/*.spec.ts"]
 }

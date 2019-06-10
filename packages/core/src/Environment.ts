@@ -11,10 +11,10 @@ export class Environment {
     if (this.env.error) {
       // This error should crash whole process
       // throw envFound.error;
+      // TODO: Do something
       throw new Error("Couldn't find .env file ");
     }
     process.env.NODE_ENV = this.name;
-    console.log('Environment.constructor');
   }
 
   async detect() {}
