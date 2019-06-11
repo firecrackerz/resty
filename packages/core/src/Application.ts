@@ -10,16 +10,16 @@ export class Application {
   protected config: Config;
 
   public server: express.Express;
-  public router: express.Router;
+  // public router: express.Router;
 
   constructor(environment?: Environment, config?: Config) {
     this.environment = environment || new Environment();
     this.config = config || new Config();
 
     this.server = express();
-    this.router = express.Router();
+    // this.router = express.Router();
 
-    this.server.use(this.router);
+    // this.server.use(this.router);
 
     // let router = Container.get<express.RequestHandler[]>('Router');
     // this.server.use(router);
@@ -38,9 +38,17 @@ export class Application {
   //   this.server.use(prefix, router);
   // }
 
-  public register(prefix: string, router: express.Router) {
-    this.server.use(prefix, router);
+  public register(router: express.Router, prefix?: string): void {
+    if (prefix) {
+      this.server.use(prefix, router);
+    } else {
+      this.server.use(router);
+    }
   }
+
+  // public routes(routes: ApplicationRoutes): express.Express {
+  //   return this.server.use(routes.router);
+  // }
 
   // public use(...handlers: express.RequestHandler[]) {
   //   this.server.use(handlers);
