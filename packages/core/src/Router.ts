@@ -1,4 +1,5 @@
 import * as express from 'express';
+import {MiddlewareInterface} from './MiddlewareInterface';
 
 export interface IRoutes {
   router: express.Router;
@@ -13,6 +14,12 @@ export class ApplicationRoutes implements IRoutes {
   }
   configure() {
     throw new Error('Method not implemented.');
+  }
+
+  register(...middlewares: MiddlewareInterface[]) {
+    middlewares.forEach(middleware => {
+      this.router.use(middleware.use);
+    });
   }
 
   //   register(routes: ApplicationRoutes) {

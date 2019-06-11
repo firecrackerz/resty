@@ -50,8 +50,15 @@ export class Application {
   //   return this.server.use(routes.router);
   // }
 
-  // public use(...handlers: express.RequestHandler[]) {
-  //   this.server.use(handlers);
+  // public use(
+  //   ...handlers: express.RequestHandler[] | ErrorMiddlewareInterface[]
+  // ) {
+  //   if handlers
+  //   this.server.use(handlers | middlewares.map(middleware => middleware.error));
+  // }
+
+  // public myMethod(...middlewares: ErrorMiddlewareInterface[]) {
+  //   return this.server.use(middlewares.map(middleware => middleware.error));
   // }
 
   // public register(prefix: string, router: express.Router) {
