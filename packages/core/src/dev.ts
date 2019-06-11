@@ -92,9 +92,9 @@ export class CustomErrorHandler implements ErrorMiddlewareInterface {
 //   api.get('/', controller.get);
 // }
 
-@Service()
+// @Service()
 class HelloController {
-  async get(req: Request, res: Response, next: NextFunction) {
+  async index(req: Request, res: Response, next: NextFunction) {
     console.log('ress...');
     return res
       .send('hello')
@@ -108,7 +108,7 @@ class AuthRoutes extends ApplicationRoutes {
   @Inject() protected helloController: HelloController;
 
   async configure() {
-    this.router.get('/', new HelloController().get);
+    this.router.get('/', new HelloController().index);
   }
 }
 
@@ -119,7 +119,7 @@ class Routes extends ApplicationRoutes {
   @Inject() protected authRoutes: AuthRoutes;
 
   async configure() {
-    this.router.get('/', new HelloController().get);
+    this.router.get('/', new HelloController().index);
     // this.router.use(this.authRoutes.router);
   }
 }
